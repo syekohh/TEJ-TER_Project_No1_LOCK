@@ -15,10 +15,3 @@
 // define constants for the UltraSonic Sensor
 #define trigPin 9
 #define echoPin 10
-
-#define acceptedCode "HQH"
-
-// Create Global Variables for the distance measure and
-// sound wave travel duraction for the UltraSonic Sensor
-extern int distance;
-extern long duration;

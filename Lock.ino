@@ -34,34 +34,40 @@ void setup()
 // method that loops the code
 void loop()
 {
-
+    // reset the counter and accessGranted variables
     counter = 0;
     accessGranted = false;
+
     // set the distance variable equal to the
     // distance returned from the getDistance() method
-
     distance = getDistance();
 
+    // print the distance being read
     Serial.println(distance);
 
-    // unlocked phase, green LED is off, red LED is on
+    // locked phase, green LED is off, red LED is on
     digitalWrite(redPin, HIGH);
     digitalWrite(greenPin, LOW);
 
-    // if the "distance" between the object and the
+    // if the distance between the object and the
     // sensor is less than 7cm, begin the unlock phase
     if (distance < 7)
     {
-        // set the boolean "access" variable equal to the
-        // value returned from the checkSensorTime() method
 
         while (distance < 7)
         {
+            // blink the green LED to signify the unlock process has started
             digitalWrite(greenPin, HIGH);
             delay(500);
             digitalWrite(greenPin, LOW);
+
+            // the counter increases by one for every blink
             counter++;
+
+            // get the distance to ensure its still less than 7cm
             distance = getDistance();
+
+            // grant the user access if they held for 3 counts
             if (counter == 3)
             {
                 accessGranted = true;
@@ -70,6 +76,8 @@ void loop()
             {
                 accessGranted = false;
             }
+
+            // used for debugging
             if (distance == 0)
             {
                 distance = 100;
@@ -78,14 +86,15 @@ void loop()
 
         // if the security check is valid, you are
         // granted access, if you are, unlock the lock.
-
         if (accessGranted)
         {
+            // run the unlock phase
             unlockPhase();
         }
     }
 }
 
+// method to return the distance between the object and the sensor
 int getDistance()
 {
     // Clears the trigPin
@@ -102,11 +111,11 @@ int getDistance()
 
     // Calculating the distance
     distance = duration * 0.034 / 2;
-    Serial.println(distance);
 
     return distance;
 }
 
+// method for the unlock phase
 void unlockPhase()
 {
     // set the green LED on, and red LED off
