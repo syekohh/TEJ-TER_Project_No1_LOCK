@@ -1,0 +1,29 @@
+{
+    "configurations": [
+        {
+            "name": "Mac",
+            "includePath": [
+                "/Users/harisaljic/Downloads/Arduino.app/Contents/Java/tools/**",
+                "/Users/harisaljic/Documents/Arduino/libraries/**",
+                "/Users/harisaljic/Downloads/Arduino.app/Contents/Java/libraries/**",
+                "/Users/harisaljic/Downloads/Arduino.app/Contents/Java/hardware/tools/**",
+                "/Users/harisaljic/Downloads/Arduino.app/Contents/Java/hardware/arduino/avr/**"
+            ],
+            "forcedInclude": [
+                "/Users/harisaljic/Downloads/Arduino.app/Contents/Java/hardware/arduino/avr/cores/arduino/Arduino.h"
+            ],
+            "defines": [
+                "USBCON"
+            ],
+            "macFrameworkPath": [
+                "/System/Library/Frameworks",
+                "/Library/Frameworks"
+            ],
+            "intelliSenseMode": "clang-x64",
+            "compilerPath": "/usr/bin/clang",
+            "cStandard": "c17",
+            "cppStandard": "c++17"
+        }
+    ],
+    "version": 4
+}
